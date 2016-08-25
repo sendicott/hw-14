@@ -44,7 +44,7 @@ h2 {
 #outerBox {
     @include grid-column-offset(1);
     @include grid-column(10);
-    background-color: #DCDCDC;
+    background-color: #d8d8d8;
     height: 350px;
 }
 

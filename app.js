@@ -14,26 +14,32 @@ function addScramble() {
     request.addEventListener('load', function() {
         let delivery = JSON.parse(request.responseText);
         let scrambledWord = delivery.scrambled;
+        let theID = delivery.id;
         let splitScramble = scrambledWord.split("");
         let parent = document.querySelector('#outerBox');
         let template = document.querySelector('#scramble-template').innerHTML;
         let section = document.createElement('section');
         section.innerHTML = Mustache.render(template, { splitScramble: splitScramble });
         parent.appendChild(section);
+
+        let submitBtn = document.querySelector('#submit');
+        submitBtn.addEventListener('click', function() {
+            let request = new XMLHttpRequest();
+            request.open('POST', 'https://harold-jtpegfzoyg.now.sh/scrambled');
+            let input = document.querySelector('#input').value;
+            let guess = {
+                id: theID,
+                guess: input
+            }
+            console.log(delivery.correct);
+        })
+        //if... <-- do I put an if statement here to find out whether the guess was right?
     });
     request.send();
 }
 
-// build a function that populates HTML
-// run it once in window event listener
-// after that, put the function in a click listener
 
 window.addEventListener('load', function() {
     addScramble();
 
-    let submitBtn = document.querySelector('#submit');
-    submitBtn.addEventListener('click', function() {
-        let request = new XMLHttpRequest();
-        request.open('POST', 'https://harold-jtpegfzoyg.now.sh/scrambled');
-    });
 })
