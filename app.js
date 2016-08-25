@@ -33,7 +33,12 @@ function addScramble() {
             }
             console.log(delivery.correct);
         })
-        //if... <-- do I put an if statement here to find out whether the guess was right?
+        let splitGuess = input.split("");
+        if (splitGuess.length === scrambledWord.length) {
+            if (splitGuess.sort() === scrambledWord.sort()) {
+                request.send(JSON.stringify(input));
+            }
+        }
     });
     request.send();
 }
