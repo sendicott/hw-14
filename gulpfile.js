@@ -1,10 +1,10 @@
 'use strict'
 
 let gulp = require('gulp');
-let uglify = require('gulp-uglify');
+// let uglify = require('gulp-uglify');
+// let babel = require('gulp-babel');
 let watch = require('gulp-watch');
 let htmlhint = require('gulp-htmlhint');
-let babel = require('gulp-babel');
 let sass = require('gulp-sass');
 
 gulp.task('default', ['html', 'css', 'js']);

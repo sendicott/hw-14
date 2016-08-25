@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+    <script src="app.js"></script>
+    <script id="scramble-template" type="x-mustache-template">
+        <h2 class="row" id="row1">The next word is...</h2>
+        <div class="row" id="row2">
+            {{ #splitScramble }}
+                <p class="flexLetters">{{ . }}</p>
+            {{ /splitScramble }}
+        </div>
+    </script>
+    <link rel="stylesheet" href="style.css">    
+</head>
+
+<body>
+    <section class="row">
+        <h1>The Scrambler</h1>
+    </section>
+    <section class="row">
+        <div id="outerBox">
+            
+
+        </div>
+    </section>
+</body>
+</html>
