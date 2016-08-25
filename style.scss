@@ -21,10 +21,47 @@ h2 {
     @include grid-row();
 }
 
+#row2 {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#row3 {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+
+    button {
+        padding: 10px;
+        border: 1px solid gray;
+        background-color: #f8e71c;
+        margin-left: 15px;
+    }
+}
+
 #outerBox {
     @include grid-column-offset(1);
     @include grid-column(10);
     background-color: #DCDCDC;
-    height: 250px;
+    height: 350px;
 }
 
+.flexLetters {
+    border: 2px solid gray;
+    background-color: white;
+    text-align: center;
+    padding: 22px 40px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+#survey {
+    @include grid-column-offset(3);
+    @include grid-column(6);
+    padding: 10px;
+    border: 1px solid gray;
+    background-color: #f37c7c;
+    text-align: center;
+}

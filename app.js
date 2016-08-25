@@ -17,12 +17,9 @@ function addScramble() {
         let splitScramble = scrambledWord.split("");
         let parent = document.querySelector('#outerBox');
         let template = document.querySelector('#scramble-template').innerHTML;
-        for (let i = 0; i < splitScramble.length; i++) {
-            // trying this out below
-            let letter = document.createElement('p');
-            letter.innerHTML = Mustache.render(template, splitScramble[i]);
-            //trying this out above
-        }
+        let section = document.createElement('section');
+        section.innerHTML = Mustache.render(template, { splitScramble: splitScramble });
+        parent.appendChild(section);
     });
     request.send();
 }
@@ -33,4 +30,10 @@ function addScramble() {
 
 window.addEventListener('load', function() {
     addScramble();
+
+    let submitBtn = document.querySelector('#submit');
+    submitBtn.addEventListener('click', function() {
+        let request = new XMLHttpRequest();
+        request.open('POST', 'https://harold-jtpegfzoyg.now.sh/scrambled');
+    });
 })
