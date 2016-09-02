@@ -26,19 +26,23 @@ function addScramble() {
         submitBtn.addEventListener('click', function() {
             let request = new XMLHttpRequest();
             request.open('POST', 'https://harold-jtpegfzoyg.now.sh/scrambled');
+            request.addEventListener('load', function () {
+                let response = JSON.parse(request.responseText); 
+                if (response === )
+            });
             let input = document.querySelector('#input').value;
             let guess = {
                 id: theID,
                 guess: input
             }
-            console.log(delivery.correct);
-        })
-        let splitGuess = input.split("");
-        if (splitGuess.length === scrambledWord.length) {
-            if (splitGuess.sort() === scrambledWord.sort()) {
-                request.send(JSON.stringify(input));
+            let splitGuess = input.split("");
+            if (splitGuess.length === scrambledWord.length) {
+                if (splitGuess.sort() === scrambledWord.sort()) {
+                    request.send(JSON.stringify(input));
+                }
             }
-        }
+        });
+    
     });
     request.send();
 }
